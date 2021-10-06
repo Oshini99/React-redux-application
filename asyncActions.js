@@ -62,11 +62,17 @@ const fetchUsers = () => {
       .get("https://jsonplaceholder.typicode.com/users")
       .then((Response) => {
         // response.data is the array of users
+        const users = response.data.map((user) => user.id);
+        dispatch(fetchUsersSuccess(users));
       })
       .catch((error) => {
         // response.message is the error description
+        dispatch(fetchUsersFailure(error.message));
       });
   };
 };
 
-const store = createStore(reducer, applyMiddleware);
+const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+store.subscribe(() => {
+  console.log(store.getState());
+});
