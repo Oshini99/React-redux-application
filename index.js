@@ -1,10 +1,10 @@
 // import redux from "redux";
 const redux = require("redux"); // to run as a small node application
-const reactLogger = require("redux-logger");
+const reduxLogger = require("redux-logger");
 const createStore = redux.createStore;
 const combineReducers = redux.combineReducers;
 const applyMiddleware = redux.applyMiddleware;
-const logger = ReduxLogger.createLogger();
+const logger = reduxLogger.createLogger();
 
 const BUY_CAKE = "BUY_CAKE";
 const BUY_ICECREAM = "BUY_ICECREAM";
